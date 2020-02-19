@@ -1,13 +1,13 @@
 <template>
   <div class="goods">
-     <goods-list-item v-for="item in goods" :key="item.title" :goodsItem='item'></goods-list-item> 
+     <goods-list-item v-for="(item,index) in goods"  :goodsItem='item' :key="index" @imgLoad='loadOk'></goods-list-item> 
      <!-- {{goods}} -->
-
   </div>
 </template>
 
 <script>
 import GoodsListItem from './GoodsListItem'
+
 export default {
 props:{
   goods:{
@@ -19,6 +19,11 @@ props:{
 },
 components:{
   GoodsListItem
+},
+methods:{
+  loadOk(){
+    this.$emit('loadOk')
+  }
 }
 }
 </script>

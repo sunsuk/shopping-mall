@@ -34,7 +34,9 @@ module.exports = {
       'base':resolve('src/base'),
       'api':resolve('src/api'),
       'img':resolve('src/assets/img'),
-      'network':resolve('src/network')
+      'network':resolve('src/network'),
+      'login':resolve('src/views'),
+      "register":resolve('src/register/index')
     }
   },
   module: {

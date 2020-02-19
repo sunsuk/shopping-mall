@@ -1,6 +1,6 @@
 <template>
-  <div class="goods-item">
-      <img :src="goodsItem.show.img" alt="">
+  <div class="goods-item" @click="goodsImgClick">
+      <img v-lazy="getImg" alt="" @load="imgLoad" >
       <div class="goods-info">
           <p>{{goodsItem.title}}</p>
           <div class="goods-info-num">  
@@ -10,6 +10,7 @@
 </template>
 
 <script>
+
 export default {
 props:{
     goodsItem:{
@@ -17,6 +18,34 @@ props:{
         default(){
             return {}
         }
+    }
+},
+components:{
+},
+
+methods:{
+    imgLoad(){
+        //$bus.$emit 相当于vuex  是事件总线 (传递出去)
+        this.$bus.$emit('loadScuess')
+        this.$emit('imgLoad')
+    },
+    // 图片点击事件
+    goodsImgClick(){
+        console.log('click')
+        // this.$router.push({
+        //     path:'/detail',
+        //     query:{
+        //         iid:this.goodsItem.iid
+        //     }
+
+        // })
+        this.$router.push('/detail/'+this.goodsItem.iid)
+
+    }
+},
+computed:{
+    getImg(){
+        return this.goodsItem.img || this.goodsItem.image || this.goodsItem.show.img
     }
 }
 }

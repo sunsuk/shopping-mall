@@ -1,9 +1,13 @@
 <template>
   <div id="app">
-    <main-tab-bar></main-tab-bar>
-    <router-view></router-view>
     
+    <main-tab-bar></main-tab-bar>
    
+    <!-- keep-alive 保证页面不被destroyed -->
+    <keep-alive exclude="Detail">
+    <router-view></router-view>
+
+    </keep-alive>
 
   </div>
 </template>
