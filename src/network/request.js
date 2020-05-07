@@ -3,7 +3,7 @@ import axios from 'axios'
 export function request(config){
     //1创建axios 实例
       const service = axios.create({
-        baseURL : "http://106.54.54.237:8000/api/hy",
+        baseURL : "http://123.207.32.32:8000/api/m3",
           timeout:10000,
         //   headers:{}
       })
