@@ -63,11 +63,11 @@ export default{
       
     },
     mounted(){
-        const refresh =  dobounce(this.$refs.scroll.refresh,200)
+        // const refresh =  dobounce(this.$refs.scroll.refresh,200)
          //监听goodlistitem 的图片是否加载完成了  $bus.$on 接收事件
        this.$bus.$on('loadScuess',()=>{
-        //   this.$refs.scroll.refresh() //重新计算高度的refresh执行的次数过多 需要防抖函数
-           refresh()
+         this.$refs.scroll.refresh() //重新计算高度的refresh执行的次数过多 需要防抖函数
+        //    refresh()
        })
        
        
@@ -199,6 +199,6 @@ export default{
     bottom: 49px;
     left: 0;
     right: 0;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 </style>

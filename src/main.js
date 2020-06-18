@@ -2,6 +2,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+
 import store from './store'
 import toast from './components/common/toast'
 import fastClick from 'fastclick'
@@ -17,6 +18,9 @@ Vue.use(VueLazyLoad,{
 })
 fastClick.attach(document.body)
 /* eslint-disable no-new */
+// router.afterEach((to,from,next)=>{
+//     window.scrollTo(0,0)
+// })
 new Vue({
   render:h =>h(App),
 
